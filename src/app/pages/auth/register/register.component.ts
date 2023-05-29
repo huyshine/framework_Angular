@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent  {
 
-  user = {
+  credentials = {
     name: '',
     email: '',
     password: '',
@@ -15,7 +15,7 @@ export class RegisterComponent  {
   };
 
   onSubmit() {
-    console.log('Registration submitted:', this.user);
+    console.log('Registration submitted:', this.credentials);
     // Goi API
   }
 

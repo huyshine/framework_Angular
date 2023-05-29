@@ -1,18 +1,15 @@
 <div class="main-site main-childs">
   <div class="user-wrapper">
     <div class="user-nav">
-      <a  href="/login" class="active">
-        Sign In
-      </a>
-      <a  href="/register">Sign Up</a>
+      <a routerLink="/login" class="active"> Sign In </a>
+      <a routerLink="/register">Sign Up</a>
     </div>
-    <form
-      acceptCharset="UTF-8"
-      id="formAcount"
-      (ngSubmit)="onSubmit()"    >
+    <form acceptCharset="UTF-8" id="formAcount" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <input
           type="text"
+          name="email"
+          [(ngModel)]="credentials.email"
           placeholder="Enter email or username"
         />
         <!-- <Text type="danger">{errors.email?.message}</Text> -->
@@ -21,6 +18,8 @@
         <input
           type="password"
           id="password"
+          name="password"
+          [(ngModel)]="credentials.password"
           placeholder="Password"
         />
         <!-- <Text type="danger">{errors.password?.message}</Text> -->

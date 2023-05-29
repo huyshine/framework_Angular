@@ -1,8 +1,8 @@
 <div class="main-site main-childs">
   <div class="user-wrapper">
     <div class="user-nav">
-      <a href="/login">Sign In</a>
-      <a href="/register" class="active"> Sign Up </a>
+      <a routerLink="/login">Sign In</a>
+      <a routerLink="/register" class="active"> Sign Up </a>
     </div>
     <form acceptCharset="UTF-8" id="formAcount" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -10,6 +10,8 @@
           type="name"
           id="name"
           name="name"
+      [(ngModel)]="credentials.name"
+
           required
           placeholder="What's your name?"
           autoComplete="off"
@@ -21,6 +23,8 @@
           type="email"
           id="email"
           name="email"
+      [(ngModel)]="credentials.email"
+
           required
           placeholder="Enter email or username"
           autoComplete="off"
@@ -28,11 +32,16 @@
         <!-- <Text type="danger">{errors.email?.message}</Text> -->
       </div>
       <div class="form-group">
-        <input type="password" id="password" placeholder="Password" />
+      <input 
+      type="password" id="password"  name="password"   placeholder="Password" 
+      [(ngModel)]="credentials.password"
+      />
         <!-- <Text type="danger">{errors.password?.message}</Text> -->
       </div>
       <div class="form-group">
-        <input type="password" id="rePassword" placeholder="Re-Password" />
+      <input type="password" id="rePassword"  
+      [(ngModel)]="credentials.confirmPassword"
+      placeholder="Re-Password" />
         <!-- <Text type="danger">{errors.confirmPassword?.message}</Text> -->
       </div>
       <button class="btn btn-signup" type="submit">Sign Up</button>

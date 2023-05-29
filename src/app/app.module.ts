@@ -14,8 +14,8 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/user/header/header.component';
+import { FooterComponent } from './components/user/footer/footer.component';
 // import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoryComponent } from './pages/category/category.component';
@@ -25,28 +25,38 @@ import { HeaderAdminComponent } from './components/header-admin/header-admin.com
 import { FooterAdminComponent } from './components/footer-admin/footer-admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
-import { TopbarComponent } from './components/topbar/topbar.component';
-import { TopmenuComponent } from './components/topmenu/topmenu.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { SlideComponent } from './components/slide/slide.component';
+import { TopbarComponent } from './components/user/topbar/topbar.component';
+import { TopmenuComponent } from './components/user/topmenu/topmenu.component';
+import { MenuComponent } from './components/user/menu/menu.component';
+import { SlideComponent } from './components/user/slide/slide.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    // LoginComponent,
-    CategoryComponent,
+    // Layout Component
     LayoutAdminComponent,
     LayoutClientComponent,
-    HeaderAdminComponent,
-    FooterAdminComponent,
-    ProductDetailComponent,
+    // Component,
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
     TopbarComponent,
+    SlideComponent,
     TopmenuComponent,
     MenuComponent,
-    SlideComponent
+    // Admin
+    HeaderAdminComponent,
+    FooterAdminComponent,
+
+    // Pagas
+    HomeComponent,
+    CategoryComponent,
+    ProductDetailComponent,
+    LoginComponent,
+    RegisterComponent,
+    
+
     
   ],
   imports: [
