@@ -126,9 +126,9 @@ export class HomeComponent implements OnInit{
     }
 }
 
-onFilter(dv: DataView, event: Event) {
-    dv.filter((event.target as HTMLInputElement).value);
-}
+    onFilter(products: DataView, event: Event) {
+      products.filter((event.target as HTMLInputElement).value);
+    }
 
 
 }
