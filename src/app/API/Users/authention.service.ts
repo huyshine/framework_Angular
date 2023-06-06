@@ -7,11 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class AuthentionService {
 
- 
+tocken: any = null;
+
 
 private apiUrl = 'http://localhost:8080/api';
 
 constructor(private http: HttpClient) { }
+
+setTocken(tocken:string){
+  this.tocken=tocken;
+  }
+getTocken(){
+  return this.tocken;
+}
 
 signin(user: any): Observable<any> {
   const url = `${this.apiUrl}/signin`

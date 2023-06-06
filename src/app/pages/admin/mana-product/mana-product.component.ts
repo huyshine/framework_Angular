@@ -21,7 +21,7 @@ export class ManaProductComponent implements OnInit {
 
   deleteProductsDialog: boolean = false;
 
-  constructor(private ProductsService:ProductsService, private Categories:CategoriesService ){}
+  constructor(private ProductsService:ProductsService, private Categories:CategoriesService  ){}
   ngOnInit() {
     this.ProductsService.getProducts().subscribe(
       (response)=>{
@@ -32,9 +32,13 @@ export class ManaProductComponent implements OnInit {
     this.Categories.getAllCategories().subscribe(
       (response)=>{
         this.categories = response.datas
-        // console.log(response)
+        console.log(response.datas)
       }
     )
+
+
+
+  
 }
  
 
@@ -64,8 +68,13 @@ hideDialog() {
 
 confirmDelete() {
   console.log(this.product._id);
-  this.ProductsService.deleteProduct(this.product._id)
-  this.products = this.products.filter(val => val._id !== this.product._id);
+  this.ProductsService.deleteProduct(this.product._id).subscribe(
+    (response)=>{
+      this.products = this.products.filter(val => val._id !== this.product._id);
+      // this.products = response.datas;
+      console.log(response)
+    }
+  )
 
   this.deleteProductDialog = false;
   // this.products = this.products.filter(val => val.id !== this.product.id);
@@ -82,7 +91,12 @@ saveProduct() {
           // @ts-ignore
           // this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value : this.product.inventoryStatus;
           // this.products[this.findIndexById(this.product.id)] = this.product;
-          this.ProductsService.updateProduct(this.product);
+          this.ProductsService.updateProduct(this.product).subscribe(
+            (response)=>{
+              this.products = response.datas;
+              console.log(response)
+            }
+          );
           console.log(this.product);
 
           // this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000 });
@@ -92,7 +106,13 @@ saveProduct() {
           this.product.image = 'product-placeholder.svg';
           // @ts-ignore
           // this.product.inventoryStatus = this.product.inventoryStatus ? this.product.inventoryStatus.value : 'INSTOCK';
-          this.ProductsService.createProduct(this.product);
+          this.ProductsService.createProduct(this.product).subscribe(
+            (response)=>{
+              this.products = response.datas;
+              // this.products = this.products.filter(val => val._id !== this.product._id);
+              console.log(response)
+            }
+          );
           console.log(this.product);
           
           // this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000 });

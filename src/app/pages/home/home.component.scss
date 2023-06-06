@@ -1,109 +1,109 @@
-// /* product-page.component.scss */
-// .product-page {
-//     font-family: Arial, sans-serif;
-//     padding: 20px;
+/* product-page.component.scss */
+.product-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
     
-//     .product-page-header {
-//       text-align: center;
-//       margin-bottom: 20px;
+    .product-page-header {
+      text-align: center;
+      margin-bottom: 20px;
       
-//       h1 {
-//         font-size: 24px;
-//         color: #333;
-//       }
+      h1 {
+        font-size: 24px;
+        color: #333;
+      }
       
-//       .product-page-description {
-//         font-size: 14px;
-//         color: #777;
-//       }
-//     }
+      .product-page-description {
+        font-size: 14px;
+        color: #777;
+      }
+    }
     
-//     .product-page-details {
-//       display: flex;
+    .product-page-details {
+      display: flex;
       
-//       .product-image {
-//         flex: 1;
+      .product-image {
+        flex: 1;
         
-//         img {
-//           max-width: 100%;
-//         }
-//       }
+        img {
+          max-width: 100%;
+        }
+      }
       
-//       .product-info {
-//         flex: 1;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         align-items: flex-start;
-//         padding-left: 20px;
+      .product-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 20px;
         
-//         .product-price {
-//           font-size: 18px;
-//           color: #333;
-//         }
+        .product-price {
+          font-size: 18px;
+          color: #333;
+        }
         
-//         .product-stock {
-//           font-size: 16px;
-//           color: #777;
+        .product-stock {
+          font-size: 16px;
+          color: #777;
           
-//           &.out-of-stock {
-//             color: red;
-//           }
-//         }
+          &.out-of-stock {
+            color: red;
+          }
+        }
         
-//         .add-to-cart-button {
-//           padding: 10px 20px;
-//           background-color: #007bff;
-//           color: #fff;
-//           border: none;
-//           border-radius: 4px;
-//           cursor: pointer;
-//           font-size: 16px;
-//           margin-top: 10px;
+        .add-to-cart-button {
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+          margin-top: 10px;
           
-//           &:hover {
-//             background-color: #0056b3;
-//           }
-//         }
-//       }
-//     }
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
 
     
-//   .product-page-more-details {
-//     margin-top: 30px;
+  .product-page-more-details {
+    margin-top: 30px;
 
-//     h2 {
-//       font-size: 20px;
-//       margin-bottom: 10px;
-//     }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
 
-//     .more-details-grid {
-//       display: flex;
-//       flex-wrap: wrap;
+    .more-details-grid {
+      display: flex;
+      flex-wrap: wrap;
 
-//       .detail-item {
-//         flex-basis: calc(50% - 10px); // Chia thành 2 cột
-//         padding: 10px;
-//         transition: transform 0.3s ease-in-out;
+      .detail-item {
+        flex-basis: calc(50% - 10px); // Chia thành 2 cột
+        padding: 10px;
+        transition: transform 0.3s ease-in-out;
 
-//         &:hover {
-//           transform: scale(1.05);
-//           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-//         }
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-//         h3 {
-//           font-size: 16px;
-//           margin-bottom: 5px;
-//           color: #333;
-//         }
+        h3 {
+          font-size: 16px;
+          margin-bottom: 5px;
+          color: #333;
+        }
 
-//         p {
-//           font-size: 14px;
-//           color: #777;
-//         }
-//       }
-//     }
-//   }
+        p {
+          font-size: 14px;
+          color: #777;
+        }
+      }
+    }
+  }
   
-//   }
+  }
   

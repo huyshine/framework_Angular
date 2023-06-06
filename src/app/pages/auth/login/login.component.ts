@@ -23,15 +23,23 @@ export class LoginComponent {
 
      ) { }
 
+     
+
   onSubmit() {
     // console.log('Registration submitted:', this.credentials);
     // Goi API
 
     this.authService.signin(this.credentials).subscribe(
+
+      
       (response) => {
+
+        this.authService.setTocken(response.accessToken);
+        console.log(this.authService.getTocken());
         
         console.log('Login successful');
         localStorage.setItem("user", JSON.stringify(response));
+        
         // toast.success("Logged in successfully");
         const roleId = response.data.role == "member" ? this.router.navigate(['/home']) : this.router.navigate(['/admin']);
 
@@ -43,4 +51,8 @@ export class LoginComponent {
       }
     );
   }
+
+
+
+
 }

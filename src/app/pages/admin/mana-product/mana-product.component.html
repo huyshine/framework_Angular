@@ -15,7 +15,7 @@
 </div>
 
 <p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" class="p-fluid">
-           <ng-template pTemplate="content">
+           <ng-template pTemplate="content"*ngIf="product">
             <img [src]=" product.image" [alt]="product.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" *ngIf="product.image">
 
                 <div class="field">
@@ -29,13 +29,27 @@
                 <div class="field">
                     <label for="image">Image</label>
                     <input type="file" id="image" pInputText id="name" >    
-                    <!-- <img [src]="product.image" [alt]="product.name" width="100" class="shadow-4" /> -->
+                    <img [src]="product.image" [alt]="product.name" width="100" class="shadow-4" />
 
                 </div>
                 <div class="field">
                     <label for="">category</label>
-                        <!-- <p-dropdown [options]="categories" [(ngModel)]="categories" placeholder="select" optionLabel="name" inputId="float-label"   ></p-dropdown>                   -->
+                 
+
+                    <p-dropdown [options]="categories" [(ngModel)]="product.categoryId" optionLabel="name" optionValue="_id" inputId="categoryId"  placeholder="Select">
+                        <!-- <ng-template pTemplate="selectedItem">
+                            <span *ngIf="product.categoryId" [class]="'product-badge status-' + product.categoryId">{{product.categoryId}}</span>
+                        </ng-template> -->
+                        <ng-template let-option pTemplate="item">
+                            <span [class]="'product-badge status-' + option.value">{{option.name}}</span>
+                        </ng-template>
+                    </p-dropdown>
+
+                    
                 </div>
+
+                
+
                 <div class="formgrid grid">
                     <div class="field col">
                         <label for="price">Price</label>
