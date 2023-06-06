@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { isAuthenticate } from 'src/app/ulits/authenticate';
 import { Router } from '@angular/router';
@@ -21,13 +22,14 @@ export class HeaderComponent {
     public authenticate = isAuthenticate();
     public handleLogout = () => {
       localStorage.removeItem("user");
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
     }
     
   
     ngOnInit() {
       this.data.getData.subscribe((res : any) => {
         this.totalQuantity = res.quantity
+        
       })
       if (!localStorage.getItem("user")) return;
       return JSON.parse(localStorage.getItem("user") as string);

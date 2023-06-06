@@ -1,53 +1,8 @@
 <!-- <h1>Shopping Cart</h1> -->
 
-<div *ngIf="carts.length > 0" >
-  <table class="table table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>STT</th>
-        <th>Product Name</th>
-        <th>IMG</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Thanh tien</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cart of carts; let i = index">
-        <td>{{i+1}}</td>
-        <td>{{cart.name}}</td>
-        <td><img style="width: 100px ; height: 100px;" [src]="cart.image" alt=""></td>
-        <td>{{cart.price}}</td>
-        <td>
-          <!-- {{cart.quantity}} -->
-          <button (click)="giamSL(i,cart.quantity ) ">-</button>
-          <input (change)="updateQuantity(i ,$event )" type="number" [value]="cart.quantity" style="width:60px;text-align:center;">
-          <button (click)="tangSL(i,cart.quantity ) ">+</button>
-        </td>
-        <td>{{subTotal(cart)}}</td>
-        <td>
-          <button class="btn btn-sm btn-danger" (click)="removeCart(i)">Xóa</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <hr>
-  <div class="text-center">
-    <h3>Tổng số lượng : {{totalQuantity}} </h3>
-    <h3>Tổng thanh toán : {{totalPrice}} </h3>
-    <a routerLink="" class="btn btn-sm btn-primary">Tiếp tục mua hàng</a>
-    <button  (click)="onClear()" class="btn btn-sm btn-danger">Xóa hết tất cả sản phẩm</button>
-    <button  class="btn btn-sm btn-primary">Đặt hàng</button>
-  </div>
-</div>
 
 
-
-
-
-<h1 style="text-align: 'center'; margin: 150px ">Your cart is empty</h1>
+<h1 style="text-align: 'center'; margin-left: 150px;margin-top:50px;margin-bottom: 100px;">Your cart is empty</h1>
 
 <div class="content" *ngIf="carts.length > 0">
   <div class="total-products">
@@ -120,8 +75,10 @@
                   Cash payment <BsChevronRight />
                 </Link> -->
                 <a routerLink="" class="btn btn-light float-start"> Tiếp tục mua hàng</a>
-                <button  (click)="onClear()" class="btn btn-sm btn-danger">Xóa hết tất cả sản phẩm</button>
-                <button  class="btn btn-dark float-end">Đặt hàng</button>
+                <!-- <button  (click)="onClear()" class="btn btn-sm btn-danger">Xóa hết tất cả sản phẩm</button> -->
+                <!-- <button class="btn btn-dark float-end">Đặt hàng</button> -->
+                <a routerLink="/order" class="btn btn-dark float-end">Đặt hàng</a>
+
               </div>
             </div>
             <div class="alert alert-success mt-3">

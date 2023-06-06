@@ -1,3 +1,84 @@
-<p>
-  order works!
-</p>
+<div class="content">
+  <div class="total-products">
+    <h2 class="title-products">PAYMENT PAGE</h2>
+    <div class="row">
+      <div class="col-md-4 order-md-2">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted"> Cart ({{totalQuantity}})</span>
+        </h4>
+        <ul class="list-group mb-3" >
+          <li
+            class="list-group-item d-flex justify-content-between lh-condensed"
+            *ngFor="let cart of carts; let i = index"
+          >
+          
+            <div>
+              <h6 class="my-0">{{ cart.name }}</h6>
+            </div>
+            <span class="text-muted"> $ {{ cart.price * cart.quantity }} </span>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <span>
+              <strong>Total money</strong>
+            </span>
+            <strong>{{totalPrice}}</strong>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Receiver's information</h4>
+        <form>
+          <div class="mb-2">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Please enter your name"
+                required="true"
+              />
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="input-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Please enter your email (Optional)"
+                required="true"
+              />
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Please enter your number phone"
+                required="true"
+              />
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Please enter your address"
+                required="true"
+              />
+            </div>
+          </div>
+          <h3>Quét mã tại đây !</h3>
+          <img class="rounded" src="https://img.vietqr.io/image/MB-0867435803-compact2.png?amount={{totalPrice}}&addInfo=%22Em%20h%C3%B4m%20qua%20tuy%E1%BB%87t%20v%E1%BB%9Di%20l%E1%BA%AFm%22&accountName=%22Nguy%E1%BB%85n%20Qu%E1%BB%91c%20Huy%22" style="width: 30% ;  margin-top: 50px;" />
+          <hr class="mb-3" />
+
+          <button class="btn btn-primary btn-lg btn-block" type="submit">
+            <!-- Submit -->
+            <a routerLink="/thanks">Submit</a>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

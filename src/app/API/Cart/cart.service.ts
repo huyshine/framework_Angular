@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+// import { OrderType } from 'src/app/common/order';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-constructor() { }
+  private apiUrl = 'http://localhost:8080/api/order'
+
+constructor(private http : HttpClient) { }
 
 
 
@@ -43,5 +48,11 @@ getCartTotalPrice(){
   });
   return total;
 }
+
+createOrder(order: any) : Observable<any>{
+  // return instance.post(url, order);
+  return this.http.post<any>(this.apiUrl, order);
+
+};
 
 }

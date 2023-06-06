@@ -6,7 +6,8 @@ import { BehaviorSubject } from 'rxjs'
 export class DataService {
 
   private data = new BehaviorSubject({
-    totalQuantity: 0
+    totalQuantity: 0,
+    TotalPrice: 0
   });
 
   getData = this.data.asObservable();

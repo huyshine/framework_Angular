@@ -12,6 +12,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { DasboardComponent } from './pages/admin/dasboard/dasboard.component';
 import { ManaProductComponent } from './pages/admin/mana-product/mana-product.component';
 import { ManaCategoriesComponent } from './pages/admin/mana-categories/mana-categories.component';
+import { OrderComponent } from './pages/order/order.component';
+import { ThanksComponent } from './pages/thanks/thanks.component';
 
 const routes: Routes = [
  // Ứng dụng phía máy chủ: (admin)
@@ -39,6 +41,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'product/:id', component: ProductDetailComponent },
       { path: 'cart', component: CartComponent },
+      { path: 'order', component: OrderComponent },
+      { path: 'thanks', component: ThanksComponent },
       // {
       //   path: 'login',
       //   component: LoginComponent,

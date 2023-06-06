@@ -10,6 +10,7 @@ import { ScrollerModule } from 'primeng/scroller';
 import { TableModule } from 'primeng/table';
 import { RouterModule } from '@angular/router';
 
+
 // import Admin component
 
 
@@ -50,6 +51,8 @@ import { MenuModule } from 'primeng/menu';
 import { ChartModule } from 'primeng/chart';
 import { AppLayoutModule } from './layouts/layout/app.layout.module';
 import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
+import { OrderComponent } from './pages/order/order.component';
+import { ThanksComponent } from './pages/thanks/thanks.component';
 
 
 
@@ -72,14 +75,16 @@ import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
     DasboardComponent,
     ManaProductComponent,
     ManaCategoriesComponent,
-
+    
     // Pagas
     HomeComponent,
     CategoryComponent,
     ProductDetailComponent,
     LoginComponent,
     RegisterComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent,
+    ThanksComponent
     
 
     

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/API/data/data.service';
+import { Router } from '@angular/router';
+import { CartService } from 'src/app/API/Cart/cart.service';
 
 @Component({
   selector: 'app-order',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  totalPrice : number = this.cartService.getCartTotalPrice();
+  totalQuantity : number = this.cartService.getCartTotalQuantity();
+  carts : any = [];
+
+
+  constructor(
+    private router : Router,
+    private data : DataService,
+    private cartService : CartService,
+  ) { }
 
   ngOnInit() {
+    this.carts =  this.cartService.GetCart();
+    console.log(this.carts);
+    
+    
   }
 
+
+  
+
+  
 }
