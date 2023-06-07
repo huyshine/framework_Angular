@@ -20,7 +20,7 @@ import { HeaderComponent } from './components/user/header/header.component';
 import { FooterComponent } from './components/user/footer/footer.component';
 // import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CategoryComponent } from './pages/category/category.component';
+// import { CategoryComponent } from './pages/category/category.component';
 // import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
 import { LayoutClientComponent } from './layouts/layout-client/layout-client.component';
 // import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
@@ -81,7 +81,7 @@ import { AngularToastifyModule , ToastService} from 'angular-toastify';
     
     // Pagas
     HomeComponent,
-    CategoryComponent,
+    // CategoryComponent,
     ProductDetailComponent,
     LoginComponent,
     RegisterComponent,
@@ -114,7 +114,7 @@ import { AngularToastifyModule , ToastService} from 'angular-toastify';
     InputTextModule,
     DropdownModule,
     MenuModule,
-    // ChartModule,
+    ChartModule,
     AppLayoutModule,
     InputNumberModule,
     AngularToastifyModule,

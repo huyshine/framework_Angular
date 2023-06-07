@@ -11,6 +11,13 @@ import { ToastService } from 'angular-toastify';
 })
 export class OrderComponent implements OnInit {
 
+  productDialog: boolean = false;
+
+  openNew() {
+    // this.product = {};
+    // this.submitted = false;  
+    this.productDialog = true;
+  }
   totalPrice : number = this.cartService.getCartTotalPrice();
   totalQuantity : number = this.cartService.getCartTotalQuantity();
   carts : any = [];

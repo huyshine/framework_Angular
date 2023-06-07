@@ -1,37 +1,15 @@
-<div class="content">
-  <div class="total-products">
-    <h2 class="title-products">PAYMENT PAGE</h2>
-    <div class="row">
-      <div class="col-md-4 order-md-2">
-        <lib-toastify-toast-container [position]="'top-left'"></lib-toastify-toast-container>
-        
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted"> Cart ({{totalQuantity}})</span>
-        </h4>
-        <ul class="list-group mb-3" >
-          <li
-            class="list-group-item d-flex justify-content-between lh-condensed"
-            *ngFor="let cart of carts; let i = index"
-          >
-          
-            <div>
-              <h6 class="my-0">{{ cart.name }}</h6>
-            </div>
-            <span class="text-muted"> $ {{ cart.price * cart.quantity }} </span>
-          </li>
+<div class="diss">
+  <div class="row">
+    <lib-toastify-toast-container
+      [position]="'top-right'"
+    ></lib-toastify-toast-container>
 
-          <li class="list-group-item d-flex justify-content-between">
-            <span>
-              <strong>Total money</strong>
-            </span>
-            <strong>{{totalPrice}}</strong>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-8 order-md-1">
-        <h4 class="mb-3">Receiver's information</h4>
+    <div class="col-md-7">
+      <div class="left border">
         <form (ngSubmit)="onSubmit()">
           <div class="mb-2">
+            <label for="">User Name</label>
+
             <div class="input-group">
               <input
                 type="text"
@@ -42,11 +20,12 @@
                 name="name"
                 [(ngModel)]="credentials.name"
                 [ngModelOptions]="{ standalone: true }"
-
               />
             </div>
           </div>
           <div class="mb-2">
+            <label for="">Email</label>
+
             <div class="input-group">
               <input
                 type="email"
@@ -57,11 +36,12 @@
                 name="email"
                 [(ngModel)]="credentials.email"
                 [ngModelOptions]="{ standalone: true }"
-
               />
             </div>
           </div>
           <div class="mb-2">
+            <label for=""> Number phone</label>
+
             <div class="input-group">
               <input
                 type="text"
@@ -72,11 +52,12 @@
                 name="phone"
                 [(ngModel)]="credentials.phone"
                 [ngModelOptions]="{ standalone: true }"
-
               />
             </div>
           </div>
           <div class="mb-2">
+            <label for="">Address</label>
+
             <div class="input-group">
               <input
                 type="text"
@@ -87,19 +68,73 @@
                 name="address"
                 [(ngModel)]="credentials.address"
                 [ngModelOptions]="{ standalone: true }"
-
               />
             </div>
           </div>
-          <h3>Quét mã tại đây !</h3>
-          <img class="rounded" src="https://img.vietqr.io/image/MB-0867435803-compact2.png?amount={{totalPrice}}&addInfo=%22Em%20h%C3%B4m%20qua%20tuy%E1%BB%87t%20v%E1%BB%9Di%20l%E1%BA%AFm%22&accountName=%22Nguy%E1%BB%85n%20Qu%E1%BB%91c%20Huy%22" style="width: 30% ;  margin-top: 50px;" />
-          <hr class="mb-3" />
-
-          <button class="btn btn-primary btn-lg btn-block" type="submit">
+          <button
+            class="btn btn-primary btn-lg btn-block w-3 center"
+            type="submit"
+          >
             Submit
-            <!-- <a routerLink="/thanks">Submit</a> -->
           </button>
         </form>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="right border">
+        <div class="header">Order Summary</div>
+        <p>Cart({{ totalQuantity }})</p>
+        <div class="row item" *ngFor="let cart of carts; let i = index">
+          <div class="col-4 align-self-center">
+            <img style="width: 50%" class="img-fluid" src="{{ cart.image }}" />
+          </div>
+          <div class="col-8">
+            <div class="row">
+              <b>{{ cart.name }}</b>
+            </div>
+            <div class="row">Quantity: {{ cart.quantity }}</div>
+            <div class="row">$ {{ cart.price * cart.quantity }}</div>
+          </div>
+        </div>
+        <hr />
+        <div class="row lower">
+          <div class="col text-left">Subtotal</div>
+          <div class="col text-right">{{ totalPrice }}</div>
+        </div>
+        <div class="row lower">
+          <div class="col text-left">Delivery</div>
+          <div class="col text-right">Free</div>
+        </div>
+        <div class="row lower">
+          <div class="col text-left"><b>Total to pay</b></div>
+          <div class="col text-right">
+            <b>{{ totalPrice }}</b>
+          </div>
+        </div>
+        <button
+          pButton
+          pRipple
+          class="p-button-success mr-2"
+          (click)="openNew()"
+        >
+          Quét mã QR tại đấy!!!
+        </button>
+
+        <p-dialog
+          [(visible)]="productDialog"
+          [style]="{ width: '450px' }"
+          header=""
+          [modal]="true"
+          class="p-fluid"
+        >
+          <img
+            class="rounded"
+            src="https://img.vietqr.io/image/MB-0867435803-compact2.png?amount={{
+              totalPrice
+            }}&addInfo=%22Em%20h%C3%B4m%20qua%20tuy%E1%BB%87t%20v%E1%BB%9Di%20l%E1%BA%AFm%22&accountName=%22Nguy%E1%BB%85n%20Qu%E1%BB%91c%20Huy%22"
+            style="width: 100%; margin-top: 50px"
+          />
+        </p-dialog>
       </div>
     </div>
   </div>

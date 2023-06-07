@@ -2,16 +2,35 @@
     <h1 style="font-size: 35px;">Categories Management</h1>
 </div>
 <div class="mb-3 flex justify-content-between">
-    <p-button icon="pi pi-plus"></p-button>
+    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+
     <div class="flex gap-2">
         <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
             <input type="text" pInputText [(ngModel)]="value" placeholder="search..." />
         </span>
-        <p-button styleClass="p-button-danger" icon="pi pi-trash"></p-button>
+        <!-- <p-button styleClass="p-button-danger" icon="pi pi-trash"></p-button> -->
 
     </div>
 </div>
+
+
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" class="p-fluid">
+           <ng-template pTemplate="content">
+
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" pInputText id="name" [(ngModel)]="categories.name" >
+                </div>
+             
+           </ng-template>
+           <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" ></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" ></button>
+        </ng-template>
+</p-dialog>
+
+
 <div class="card">
     <p-table
         [value]="categories"
@@ -20,7 +39,7 @@
         [showCurrentPageReport]="true"
         [tableStyle]="{ 'min-width': '50rem' }"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [rowsPerPageOptions]="[10, 25, 50]"
+        [rowsPerPageOptions]="[5, 10, 15]"
     >
         <ng-template pTemplate="header">
             <tr>
@@ -33,18 +52,18 @@
                 <th style="min-width:200px">Action</th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-categories>
             <tr>
                 <td>
-                    <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                    <p-tableCheckbox [value]="categories"></p-tableCheckbox>
                 </td>
               
-                <td style="font-weight: bold;font-size: 18px;">{{ product.name }}</td>
+                <td style="font-weight: bold;font-size: 18px;">{{ categories.name }}</td>
 
                 <td>
                     <div class="flex gap-3">
-                        <p-button icon="pi pi-file-edit"></p-button>
-                        <p-button styleClass="p-button-danger" icon="pi pi-trash"></p-button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCate(categories)" ></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
                     </div>
                 </td>
             </tr>
