@@ -1,9 +1,10 @@
 import { ProductsService } from 'src/app/services/products/products.service';
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
 import { CategoriesService } from 'src/app/services/categories/categories.service';
 import swal from 'sweetalert2';
 import { Product } from 'src/app/common/product';
+import { uploadImage } from 'src/app/ulits';
+
 @Component({
   selector: 'app-mana-product',
   templateUrl: './mana-product.component.html',
@@ -56,7 +57,6 @@ editProduct(product:any) {
 deleteProduct(product: any) {
   this.product = { ...product };
   this.deleteProductDialog = true;
- 
 
 }
 
@@ -99,13 +99,12 @@ saveProduct() {
           );
           console.log(this.product);
 
-          // this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000 });
       } else {
-          // this.product.id = this.createId();
-          // this.product.code = this.createId();
+
+          // const url = uploadImage(this.product.image);
           this.product.image = 'product-placeholder.svg';
-          // @ts-ignore
-          // this.product.inventoryStatus = this.product.inventoryStatus ? this.product.inventoryStatus.value : 'INSTOCK';
+          // console.log(url);
+          
           this.ProductsService.createProduct(this.product).subscribe(
             (response)=>{
               this.products = response.datas;
@@ -115,8 +114,18 @@ saveProduct() {
           );
           console.log(this.product);
           
-          // this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000 });
-      }
+
+          // const url = uploadImage(this.product.image[0]);
+
+          // this.ProductsService.createProduct({...this.product , image : url}).subscribe(
+          //   (response)=>{
+          //     this.products = response.datas;
+          //     // this.products = this.products.filter(val => val._id !== this.product._id);
+          //     console.log(response)
+          //   }
+          // );
+          // console.log(this.product);
+        }
 
       this.products = [...this.products];
       this.productDialog = false;

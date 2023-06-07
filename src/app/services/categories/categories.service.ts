@@ -11,13 +11,28 @@ export class CategoriesService {
   constructor(private http: HttpClient) { }
 
 
-  getAllCategories() {
+  getAllCategories(): Observable<any> {
     return this.http.get<any>(this.apiUrl)
   }
 
-  getOneCategory(id: number | string) {
-    return this.http.get(this.apiUrl + `/${id}`)
+  getOneCate(id: number | string): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url);
+  }
 
+  creatCate(category: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, category);
+
+  }
+
+  updateCate(categoryId: any , newcategory : any): Observable<any> {
+    console.log(`${this.apiUrl}/${categoryId._id}`);
+    
+    return this.http.put<any>(`${this.apiUrl}/${categoryId}`, newcategory);
+  }
+
+  removeCate(categoryId: number | string) : Observable<any>{
+    return this.http.delete<any>(`${this.apiUrl}/${categoryId}`);
   }
 
 }

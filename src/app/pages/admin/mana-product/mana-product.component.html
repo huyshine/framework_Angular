@@ -15,7 +15,7 @@
 </div>
 
 <p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" class="p-fluid">
-           <ng-template pTemplate="content"*ngIf="product">
+           <ng-template pTemplate="content" *ngIf="product">
             <img [src]=" product.image" [alt]="product.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" *ngIf="product.image">
 
                 <div class="field">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="field">
                     <label for="image">Image</label>
-                    <input type="file" id="image" pInputText id="name" >    
+                    <input type="file"  id="image" pInputText id="name" >    
                     <img [src]="product.image" [alt]="product.name" width="100" class="shadow-4" />
 
                 </div>
@@ -43,12 +43,8 @@
                         <ng-template let-option pTemplate="item">
                             <span [class]="'product-badge status-' + option.value">{{option.name}}</span>
                         </ng-template>
-                    </p-dropdown>
-
-                    
+                    </p-dropdown> 
                 </div>
-
-                
 
                 <div class="formgrid grid">
                     <div class="field col">

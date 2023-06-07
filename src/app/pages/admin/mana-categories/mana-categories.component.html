@@ -15,19 +15,31 @@
 </div>
 
 
-<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" class="p-fluid">
-           <ng-template pTemplate="content">
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Categories Details" [modal]="true" class="p-fluid">
+           <ng-template pTemplate="content"  *ngIf="categories">
 
                 <div class="field">
                     <label for="name">Name</label>
-                    <input type="text" pInputText id="name" [(ngModel)]="categories.name" >
+                    <input type="text" pInputText id="name" [(ngModel)]="category.name" >
                 </div>
              
            </ng-template>
            <ng-template pTemplate="footer">
-            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" ></button>
-            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" ></button>
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"  (click)="saveCategory()"></button>
         </ng-template>
+</p-dialog>
+
+
+<p-dialog [(visible)]="deleteProductDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+    <div class="flex align-items-center justify-content-center">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+        <span *ngIf="category">Are you sure you want to delete <b>{{category.name}}</b>?</span>
+    </div>
+    <ng-template pTemplate="footer">
+        <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteProductDialog = false"></button>
+        <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDelete()"></button>
+    </ng-template>
 </p-dialog>
 
 
@@ -63,7 +75,7 @@
                 <td>
                     <div class="flex gap-3">
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCate(categories)" ></button>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCate(categories)"></button>
                     </div>
                 </td>
             </tr>
