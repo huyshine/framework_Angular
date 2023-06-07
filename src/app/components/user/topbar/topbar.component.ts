@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { isAuthenticate } from 'src/app/ulits/authenticate';
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    
+
+  ) { }
+
+  public authenticate = isAuthenticate();
 
   ngOnInit() {
+    if (!localStorage.getItem("user")) return;
+    return JSON.parse(localStorage.getItem("user") as string);
   }
+
+  handleLogout = () => {
+    localStorage.removeItem("user");
+  }
+
+  
+  
+  
 
 }

@@ -10,8 +10,8 @@
           type="name"
           id="name"
           name="name"
-      [(ngModel)]="credentials.name"
-
+          [(ngModel)]="credentials.name"
+          [ngModelOptions]="{ standalone: true }"
           required
           placeholder="What's your name?"
           autoComplete="off"
@@ -23,8 +23,8 @@
           type="email"
           id="email"
           name="email"
-      [(ngModel)]="credentials.email"
-
+          [(ngModel)]="credentials.email"
+          [ngModelOptions]="{ standalone: true }"
           required
           placeholder="Enter email or username"
           autoComplete="off"
@@ -34,13 +34,13 @@
       <div class="form-group">
       <input 
       type="password" id="password"  name="password"   placeholder="Password" 
-      [(ngModel)]="credentials.password"
+      [(ngModel)]="credentials.password " [ngModelOptions]="{ standalone: true }"
       />
         <!-- <Text type="danger">{errors.password?.message}</Text> -->
       </div>
       <div class="form-group">
       <input type="password" id="rePassword"  
-      [(ngModel)]="credentials.confirmPassword"
+      [(ngModel)]="credentials.confirmPassword" [ngModelOptions]="{ standalone: true }"
       placeholder="Re-Password" />
         <!-- <Text type="danger">{errors.confirmPassword?.message}</Text> -->
       </div>

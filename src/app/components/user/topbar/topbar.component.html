@@ -12,13 +12,33 @@
 </div>
 <div class="top-bar__right">
   <ul>
-    <li>
+    <li *ngIf="!authenticate">
       <a routerLink="/login">
         <!-- <FaUserCircle /> -->
-        <i class="pi pi-angle-left" style="font-size: 1rem"></i>
+        <i class="pi pi-user" style="font-size: 1rem"></i>
         <span className="Account">Account</span>
       </a>
     </li>
+    <li *ngIf="authenticate?.data.role === 'member' ">
+      <a routerLink="/admin">
+        <span className="Account">
+          Admin | {{authenticate?.data.name}}
+        </span>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span className="Account">
+          Hello, {{authenticate?.data.name}}
+        </span>
+      </a>
+    </li>
+    <li *ngIf="authenticate">
+      <a routerLink="#" (click)="handleLogout()">
+        <span className="Account">Đăng xuất</span>
+      </a>
+    </li>
+    
     <li>
       <a routerLink="/cart">
         <!-- <RiShoppingBag3Fill /> -->

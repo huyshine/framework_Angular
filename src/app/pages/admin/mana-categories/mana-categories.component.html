@@ -1,0 +1,59 @@
+<div class="mb-5 border-bottom-1 py-4" style="border-color: #ccc;">
+    <h1 style="font-size: 35px;">Categories Management</h1>
+</div>
+<div class="mb-3 flex justify-content-between">
+    <p-button icon="pi pi-plus"></p-button>
+    <div class="flex gap-2">
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input type="text" pInputText [(ngModel)]="value" placeholder="search..." />
+        </span>
+        <p-button styleClass="p-button-danger" icon="pi pi-trash"></p-button>
+
+    </div>
+</div>
+<div class="card">
+    <p-table
+        [value]="categories"
+        [paginator]="true"
+        [rows]="5"
+        [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 25, 50]"
+    >
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 4rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+               
+                <th style="min-width:200px" pSortableColumn="name">name <p-sortIcon field="decriptions"></p-sortIcon></th>
+
+                <th style="min-width:200px">Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>
+                    <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                </td>
+              
+                <td style="font-weight: bold;font-size: 18px;">{{ product.name }}</td>
+
+                <td>
+                    <div class="flex gap-3">
+                        <p-button icon="pi pi-file-edit"></p-button>
+                        <p-button styleClass="p-button-danger" icon="pi pi-trash"></p-button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>

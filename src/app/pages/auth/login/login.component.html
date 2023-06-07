@@ -10,6 +10,7 @@
           type="text"
           name="email"
           [(ngModel)]="credentials.email"
+          [ngModelOptions]="{ standalone: true }"
           placeholder="Enter email or username"
         />
         <!-- <Text type="danger">{errors.email?.message}</Text> -->
@@ -20,6 +21,7 @@
           id="password"
           name="password"
           [(ngModel)]="credentials.password"
+          [ngModelOptions]="{ standalone: true }"
           placeholder="Password"
         />
         <!-- <Text type="danger">{errors.password?.message}</Text> -->
@@ -34,6 +36,10 @@
       <p class="clearfix">Or login with</p>
       <li class="loginFb">
         <span>
+          <!-- <i class="pi pi-facebook"></i> -->
+          <i class="pi pi-facebook" style="font-size: 2rem"></i>
+
+
           <!-- <FaFacebookF /> -->
         </span>
         <a href="#">Login Facebook</a>
@@ -41,6 +47,8 @@
       <li class="loginGg">
         <span>
           <!-- <FcGoogle /> -->
+          <i class="pi pi-google" style="font-size: 2rem"></i>
+
         </span>
         <a href="#">Login Google</a>
       </li>

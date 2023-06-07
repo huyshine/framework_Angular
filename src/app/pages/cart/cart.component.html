@@ -1,0 +1,139 @@
+<!-- <h1>Shopping Cart</h1> -->
+
+
+
+<h1 style="text-align: 'center'; margin-left: 150px;margin-top:50px;margin-bottom: 100px;">Your cart is empty</h1>
+
+<div class="content" *ngIf="carts.length > 0">
+  <div class="total-products">
+    <!-- <h2 class="title-products">YOUR CART</h2> -->
+    <section class="section-content">
+      <div class="container">
+        <div class="row">
+          <main class="col-md-8">
+            <div class="card">
+              <table class="table table-borderless table-shopping-cart text-center">
+                <thead class="text-muted">
+                  <tr class="small text-uppercase">
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col" class="text-right">
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cart of carts; let i = index">
+                    <td>
+                      <p>
+                        <strong>{{cart.name}}</strong>
+                      </p>
+                    </td>
+                    <td>
+                      <img class="rounded" [src]="cart.image" style="width: 100px ; height: 100px;" />
+                    </td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-outline-dark"
+                        (click)="giamSL(i,cart.quantity ) "
+                      >
+                        -
+                      </button>
+                      <span style="padding: '30px' ">
+                        <input (change)="updateQuantity(i ,$event )" type="number" [value]="cart.quantity" style="width:60px;text-align:center;">
+                      </span>
+                      <button
+                        type="button"
+                        class="btn btn-outline-dark"
+                        (click)="tangSL(i,cart.quantity ) "
+                      >
+                        +
+                      </button>
+                    </td>
+                    <td>
+                      <em>$ {{subTotal(cart)}}</em>
+                    </td>
+                    <td class="text-right">
+                      <button
+                        class="btn btn-outline-dark"
+                        (click)="removeCart(i)"
+                      >
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="card-body border-top">
+                <!-- <Link to="/" class="btn btn-light float-start">
+                  <BsChevronLeft /> Back to home
+                </Link>
+                <Link to="/checkout" class="btn btn-dark float-end">
+                  Cash payment <BsChevronRight />
+                </Link> -->
+                <a routerLink="" class="btn btn-light float-start"> Tiếp tục mua hàng</a>
+                <!-- <button  (click)="onClear()" class="btn btn-sm btn-danger">Xóa hết tất cả sản phẩm</button> -->
+                <!-- <button class="btn btn-dark float-end">Đặt hàng</button> -->
+                <a routerLink="/order" class="btn btn-dark float-end">Đặt hàng</a>
+
+              </div>
+            </div>
+            <div class="alert alert-success mt-3">
+              <!-- <ImTruck style={{ margin: "-6px 5px 0 0" }} /> -->
+              <i class="pi pi-truck" style="color: green" style="font-size: 1.75rem"></i>
+
+              <span class="icontext" style="margin-left: 45px;">Delivery from 3 to 6 days</span>
+            </div>
+          </main>
+          <aside class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="summary" style="text-align: 'center' ">
+                  <h3>
+                    <strong>ORDER SUMMARY</strong>
+                  </h3>
+                </div>
+                <p>
+                  Gross product:
+                  <span style="margin-left: 30px">{{totalQuantity}}</span>
+                </p>
+                <p>
+                  Transport fee: <span style="margin-left: 30px">$ 0</span>
+                </p>
+                <p>
+                  Total amount:
+                  <span style="margin-left: 30px">
+                    <strong>{{totalPrice}}</strong>
+                  </span>
+                </p>
+                <div
+                  class="border border-danger"
+                  style=" padding: 7px; text-align: justify;"
+                >
+                  <p style="margin: 0;">
+                    CiDii will confirm the order by phone call. Please pay
+                    attention to your phone when your order is successful
+                    and wait for delivery. Thank you !
+                  </p>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+
+<div class="alert alert-primary alert-dismissible fade show" role="alert"  *ngIf="carts.length === 0">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+  <strong>Holy guacamole!</strong>  <a routerLink="">Click vào đây để tiếp tục mua hàng ...</a>
+</div>
+
+

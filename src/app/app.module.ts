@@ -11,6 +11,8 @@ import { TableModule } from 'primeng/table';
 import { RouterModule } from '@angular/router';
 
 
+// import Admin component
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -19,10 +21,10 @@ import { FooterComponent } from './components/user/footer/footer.component';
 // import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoryComponent } from './pages/category/category.component';
-import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
+// import { LayoutAdminComponent } from './layouts/layout-admin/layout-admin.component';
 import { LayoutClientComponent } from './layouts/layout-client/layout-client.component';
-import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
-import { FooterAdminComponent } from './components/footer-admin/footer-admin.component';
+// import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
+// import { FooterAdminComponent } from './components/footer-admin/footer-admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 import { TopbarComponent } from './components/user/topbar/topbar.component';
@@ -31,11 +33,35 @@ import { MenuComponent } from './components/user/menu/menu.component';
 import { SlideComponent } from './components/user/slide/slide.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { DasboardComponent } from './pages/admin/dasboard/dasboard.component';
+import { ManaProductComponent } from './pages/admin/mana-product/mana-product.component';
+import { ManaCategoriesComponent } from './pages/admin/mana-categories/mana-categories.component';
+
+// sweetalert 
+
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { StyleClassModule } from 'primeng/styleclass';
+import { DataViewModule } from 'primeng/dataview';
+import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { MenuModule } from 'primeng/menu';
+import { ChartModule } from 'primeng/chart';
+import { AppLayoutModule } from './layouts/layout/app.layout.module';
+import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
+import { OrderComponent } from './pages/order/order.component';
+import { ThanksComponent } from './pages/thanks/thanks.component';
+
+
+
+
+
 
 @NgModule({
   declarations: [
     // Layout Component
-    LayoutAdminComponent,
     LayoutClientComponent,
     // Component,
     AppComponent,
@@ -46,15 +72,19 @@ import { RegisterComponent } from './pages/auth/register/register.component';
     TopmenuComponent,
     MenuComponent,
     // Admin
-    HeaderAdminComponent,
-    FooterAdminComponent,
-
+    DasboardComponent,
+    ManaProductComponent,
+    ManaCategoriesComponent,
+    
     // Pagas
     HomeComponent,
     CategoryComponent,
     ProductDetailComponent,
     LoginComponent,
     RegisterComponent,
+    CartComponent,
+    OrderComponent,
+    ThanksComponent
     
 
     
@@ -72,6 +102,20 @@ import { RegisterComponent } from './pages/auth/register/register.component';
     TableModule,
     RouterModule,
     ReactiveFormsModule,
+
+    DialogModule,
+    SelectButtonModule,
+    ButtonModule,
+    StyleClassModule,
+    DataViewModule,
+    InputTextModule,
+    DropdownModule,
+    MenuModule,
+    // ChartModule,
+    AppLayoutModule,
+    InputNumberModule,
+
+    
     
 
   ],
