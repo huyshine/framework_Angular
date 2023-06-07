@@ -3,6 +3,8 @@
     <h2 class="title-products">PAYMENT PAGE</h2>
     <div class="row">
       <div class="col-md-4 order-md-2">
+        <lib-toastify-toast-container [position]="'top-left'"></lib-toastify-toast-container>
+        
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted"> Cart ({{totalQuantity}})</span>
         </h4>
@@ -28,7 +30,7 @@
       </div>
       <div class="col-md-8 order-md-1">
         <h4 class="mb-3">Receiver's information</h4>
-        <form>
+        <form (ngSubmit)="onSubmit()">
           <div class="mb-2">
             <div class="input-group">
               <input
@@ -36,6 +38,11 @@
                 class="form-control"
                 placeholder="Please enter your name"
                 required="true"
+                id="name"
+                name="name"
+                [(ngModel)]="credentials.name"
+                [ngModelOptions]="{ standalone: true }"
+
               />
             </div>
           </div>
@@ -46,6 +53,11 @@
                 class="form-control"
                 placeholder="Please enter your email (Optional)"
                 required="true"
+                id="email"
+                name="email"
+                [(ngModel)]="credentials.email"
+                [ngModelOptions]="{ standalone: true }"
+
               />
             </div>
           </div>
@@ -56,6 +68,11 @@
                 class="form-control"
                 placeholder="Please enter your number phone"
                 required="true"
+                id="phone"
+                name="phone"
+                [(ngModel)]="credentials.phone"
+                [ngModelOptions]="{ standalone: true }"
+
               />
             </div>
           </div>
@@ -66,6 +83,11 @@
                 class="form-control"
                 placeholder="Please enter your address"
                 required="true"
+                id="address"
+                name="address"
+                [(ngModel)]="credentials.address"
+                [ngModelOptions]="{ standalone: true }"
+
               />
             </div>
           </div>
@@ -74,8 +96,8 @@
           <hr class="mb-3" />
 
           <button class="btn btn-primary btn-lg btn-block" type="submit">
-            <!-- Submit -->
-            <a routerLink="/thanks">Submit</a>
+            Submit
+            <!-- <a routerLink="/thanks">Submit</a> -->
           </button>
         </form>
       </div>

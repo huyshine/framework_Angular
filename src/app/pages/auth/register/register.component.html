@@ -4,6 +4,8 @@
       <a routerLink="/login">Sign In</a>
       <a routerLink="/register" class="active"> Sign Up </a>
     </div>
+    <lib-toastify-toast-container [position]="'top-right'"></lib-toastify-toast-container>
+
     <form acceptCharset="UTF-8" id="formAcount" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <input

@@ -20,26 +20,26 @@
         <a routerLink="/login">
           <!-- <FaUserCircle /> -->
           <i class="pi pi-user" style="font-size: 1rem"></i>
-          <span className="Account">Account</span>
+          <span class="Account">Account</span>
         </a>
       </li>
       <li *ngIf="authenticate?.data.role === 'admin' ">
         <a routerLink="/admin">
-          <span className="Account">
+          <span class="Account">
             Admin | {{authenticate?.data.name}}
           </span>
         </a>
       </li>
       <li *ngIf="authenticate?.data.role === 'member' ">
         <a>
-          <span className="Account">
+          <span class="Account">
             Hello, {{authenticate?.data.name}}
           </span>
         </a>
       </li>
       <li *ngIf="authenticate">
         <a routerLink="#" (click)="handleLogout()">
-          <span className="Account">Đăng xuất</span>
+          <span class="Account">Đăng xuất</span>
         </a>
       </li>
       <li>

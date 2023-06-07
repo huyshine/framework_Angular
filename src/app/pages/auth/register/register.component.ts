@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthentionService } from 'src/app/API/Users/authention.service';
+import { ToastService } from 'angular-toastify';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +17,13 @@ export class RegisterComponent  {
     confirmPassword : '',
   };
 
-  constructor(private authService: AuthentionService) { }
+  constructor(
+    private authService: AuthentionService,
+    private toastService: ToastService,
+    private router : Router,
+
+    
+    ) { }
 
   onSubmit() {
     // console.log('Registration submitted:', this.credentials);
@@ -23,12 +31,16 @@ export class RegisterComponent  {
 
     this.authService.register(this.credentials).subscribe(
       (response) => {
-        console.log('Register successful');
-        localStorage.setItem("user", JSON.stringify(this.credentials));
-        // Xử lý thành công, chẳng hạn chuyển hướng đến trang đăng nhập
+        // console.log('Register successful');
+        // localStorage.setItem("user", JSON.stringify(this.credentials));
+        this.toastService.success(
+          "Successful account registration, redirect after 3 seconds"
+        );
+        // reset();
+        setTimeout(() => this.router.navigate(["/login"]), 3000);
       },
       (error) => {
-        console.log('Register failed');
+        this.toastService.error("Error! Please try again later.");
         // Xử lý lỗi, hiển thị thông báo lỗi cho người dùng
       }
     );

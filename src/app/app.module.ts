@@ -55,6 +55,9 @@ import { OrderComponent } from './pages/order/order.component';
 import { ThanksComponent } from './pages/thanks/thanks.component';
 
 
+import { AngularToastifyModule , ToastService} from 'angular-toastify';
+
+
 
 
 
@@ -114,12 +117,13 @@ import { ThanksComponent } from './pages/thanks/thanks.component';
     // ChartModule,
     AppLayoutModule,
     InputNumberModule,
+    AngularToastifyModule,
 
     
     
 
   ],
-  providers: [],
+  providers: [ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
