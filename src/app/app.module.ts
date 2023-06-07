@@ -54,8 +54,11 @@ import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
 import { OrderComponent } from './pages/order/order.component';
 import { ThanksComponent } from './pages/thanks/thanks.component';
 
+// import { CloudinaryModule } from 'cloudinary-angular';
 
 import { AngularToastifyModule , ToastService} from 'angular-toastify';
+import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
+import { Cloudinary } from 'cloudinary-core';
 
 
 
@@ -93,6 +96,7 @@ import { AngularToastifyModule , ToastService} from 'angular-toastify';
     
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -118,6 +122,8 @@ import { AngularToastifyModule , ToastService} from 'angular-toastify';
     AppLayoutModule,
     InputNumberModule,
     AngularToastifyModule,
+    
+    
 
     
     

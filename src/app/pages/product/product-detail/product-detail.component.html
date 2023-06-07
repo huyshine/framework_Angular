@@ -31,11 +31,11 @@
       <div class="quantity">
         <p>Quatity</p>
         <i class="pi pi-angle-left" style="font-size: 1rem"></i>
-        <input type="number" min={1} value="1" />
+        <input type="number"  min="1" value="1" />
         <i class="pi pi-angle-right" style="font-size: 1rem"></i>
       </div>
       <div class="mb-4">
-        <button class="btn btn-dark mr-1" >ADD TO CART</button>
+        <button class="btn btn-dark mr-1" (click)="addToCart(product)">ADD TO CART</button>
       </div>
       <div class="desc">
         <p>Description</p>
