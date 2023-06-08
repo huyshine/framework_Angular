@@ -21,7 +21,7 @@ export class ManaProductComponent implements OnInit {
   deleteProductDialog: boolean = false;
 
   deleteProductsDialog: boolean = false;
-
+  dataUp : any
   constructor(private ProductsService:ProductsService, private Categories:CategoriesService  ){}
   ngOnInit() {
     this.ProductsService.getProducts().subscribe(
@@ -88,13 +88,27 @@ saveProduct() {
 
   if (this.product.name?.trim()) {
       if (this.product._id) {
-          // @ts-ignore
+          this.dataUp = {
+            name: this.product.name,
+            price: this.product.price,
+            description: this.product.description,
+            categoryId: this.product.categoryId ,
+            image: this.product.image,
+            discount: this.product.discount
+          }
+            // @ts-ignore
           // this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value : this.product.inventoryStatus;
           // this.products[this.findIndexById(this.product.id)] = this.product;
-          this.ProductsService.updateProduct(this.product).subscribe(
+          this.ProductsService.updateProduct(this.product._id, this.dataUp).subscribe(
             (response)=>{
-              this.products = response.datas;
-              console.log(response)
+              // this.products = response.datas;
+              // console.log(response)
+              this.ProductsService.getProducts().subscribe(
+                (responseData) => {
+                  this.products = responseData
+                  // console.log(response)
+                }
+              )
             }
           );
           console.log(this.product);
@@ -102,14 +116,21 @@ saveProduct() {
       } else {
 
           // const url = uploadImage(this.product.image);
-          this.product.image = 'product-placeholder.svg';
+          this.product.image = 'https://nld.mediacdn.vn/291774122806476800/2023/5/17/34743808213555885716786296868300557971672533n-16842998528771416615967.jpg';
           // console.log(url);
-          
+         
+
           this.ProductsService.createProduct(this.product).subscribe(
             (response)=>{
-              this.products = response.datas;
+              // this.products = response.datas;
               // this.products = this.products.filter(val => val._id !== this.product._id);
-              console.log(response)
+              // console.log(response)
+              this.ProductsService.getProducts().subscribe(
+                (responseData) => {
+                  this.products = responseData
+                  // console.log(response)
+                }
+              )
             }
           );
           console.log(this.product);

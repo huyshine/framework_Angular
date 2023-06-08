@@ -22,9 +22,9 @@ export class ProductsService {
     return this.http.post<any>(this.apiUrl, product);
   }
 
-  updateProduct(product: any): Observable<any> {
-    const url = `${this.apiUrl}/${product._id}`;
-    return this.http.put<any>(url, product);
+  updateProduct(productId: any, newProduct :any): Observable<any> {
+    const url = `${this.apiUrl}/${productId}`;
+    return this.http.put<any>(url, newProduct);
   }
 
   deleteProduct(id: string ): Observable<any> {

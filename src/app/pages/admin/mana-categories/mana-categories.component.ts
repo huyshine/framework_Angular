@@ -12,6 +12,7 @@ export class ManaCategoriesComponent {
   categories: Category[] = []
   category: any = {};
 
+  formData: FormData = new FormData();
 
   value:any
   submitted: boolean = false;
@@ -80,9 +81,17 @@ saveCategory() {
   
           this.CategoriesService.updateCate(this.category._id, {name: this.category.name}).subscribe(
             (response)=>{
+              this.formData = new FormData();
+
               // console.log(response)
-              this.router.navigate(['/admin/managementCategories'])
-              this.categories = response.datas;
+              // this.router.navigate(['/admin/managementCategories'])
+              // this.categories = response.datas;
+              this.CategoriesService.getAllCategories().subscribe(
+                (responseData) => {
+                  this.categories = responseData
+                  // console.log(response)
+                }
+              )
 
             }
           );
@@ -91,9 +100,17 @@ saveCategory() {
       } else {
           this.CategoriesService.creatCate(this.category).subscribe(
             (response)=>{
-              this.categories = response.datas;
-              // console.log(response)
-              this.router.navigate(['/admin/managementCategories'])
+              // this.categories = response.datas;
+              // // console.log(response)
+              this.formData = new FormData();
+
+              // this.router.navigate(['/admin/managementCategories'])
+              this.CategoriesService.getAllCategories().subscribe(
+                (responseData) => {
+                  this.categories = responseData
+                  // console.log(response)
+                }
+              )
             }
           );
           console.log(this.category);
